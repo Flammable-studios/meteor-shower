@@ -11,14 +11,11 @@ function setup() {
   // ellipseMode(CORNER);
   ellipseMode(CENTER);
   rectMode(CENTER);
-
-  //Set the number of frames per second
   frameRate(15);
 }
 
 function draw() {
-  //This loop gets run over and over again
-  //Your code here:test
+  background(30);
   drawShip(200);
 }
 
