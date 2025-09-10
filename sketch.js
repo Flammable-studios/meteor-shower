@@ -19,4 +19,15 @@ function setup() {
 function draw() {
   //This loop gets run over and over again
   //Your code here:test
+  drawShip(200);
+}
+
+function drawShip(x) {
+  fill('blue');
+  ellipse(x, 345, 20, 30);
+  fill('white');
+  rect(x, 360, 20, 30);
+  fill('red');
+  rect(x - 10, 380, 5, 20);
+  rect(x + 10, 380, 5, 20);
 }
