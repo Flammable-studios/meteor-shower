@@ -4,6 +4,10 @@
 //
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
+let shipX = 200;
+let shipY;
+let mX;
+let mY;
 
 function setup() {
   createCanvas(400, 400);
@@ -11,12 +15,15 @@ function setup() {
   // ellipseMode(CORNER);
   ellipseMode(CENTER);
   rectMode(CENTER);
-  frameRate(15);
+  frameRate(60);
 }
 
 function draw() {
   background(30);
-  drawShip(200);
+  drawShip(shipX);
+  if (keyIsDown(37) || keyIsDown(65)) {
+    shipX -= 5;
+  }
 }
 
 function drawShip(x) {
@@ -28,3 +35,12 @@ function drawShip(x) {
   rect(x - 10, 380, 5, 20);
   rect(x + 10, 380, 5, 20);
 }
+
+// function keyPressed() {
+//   if (keyCode === 65 || keyCode === 37) {
+//     shipX -=5; //move ship left
+//   }
+//   if (keyCode === 68 || keyCode === 39) {
+//     shipX +=5; //move ship left
+//   }
+// }
