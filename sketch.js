@@ -8,6 +8,7 @@ let shipX = 200;
 let shipY;
 let mX;
 let mY;
+let collision = false;
 
 function setup() {
   createCanvas(400, 400);
@@ -20,10 +21,26 @@ function setup() {
 
 function draw() {
   background(30);
-  drawShip(shipX);
-  if (keyIsDown(37) || keyIsDown(65)) {
+  drawShip(shipX, shipY);
+  drawMeteor(mX, mY);
+
+  if (keyIsDown(37) && shipX >= 20 || keyIsDown(65) && shipX >= 20) {
     shipX -= 5;
   }
+  if (keyIsDown(39) && shipX <= 380 || keyIsDown(68) && shipX <= 380) {
+    shipX += 5;
+  }
+
+  if (mX <= shipX + 22.5 && mY > 350) {
+    collision = true;
+  }
+  if (mX >= shipX - 22.5 && mY > 350) {
+    collision = true;
+  }
+}
+
+function drawMeteor() {
+  
 }
 
 function drawShip(x) {
@@ -35,12 +52,3 @@ function drawShip(x) {
   rect(x - 10, 380, 5, 20);
   rect(x + 10, 380, 5, 20);
 }
-
-// function keyPressed() {
-//   if (keyCode === 65 || keyCode === 37) {
-//     shipX -=5; //move ship left
-//   }
-//   if (keyCode === 68 || keyCode === 39) {
-//     shipX +=5; //move ship left
-//   }
-// }
