@@ -7,8 +7,9 @@
 let shipX = 200;
 let shipY;
 let mX;
-let mY;
+let mY = -20;
 let collision = false;
+let score = 0;
 
 function setup() {
   createCanvas(400, 400);
@@ -23,6 +24,7 @@ function draw() {
   background(30);
   drawShip(shipX, shipY);
   drawMeteor(mX, mY);
+  mY += 5;
 
   if (keyIsDown(37) && shipX >= 20 || keyIsDown(65) && shipX >= 20) {
     shipX -= 5;
@@ -33,14 +35,24 @@ function draw() {
 
   if (mX <= shipX + 22.5 && mY > 350) {
     collision = true;
+    // score = 0;
   }
   if (mX >= shipX - 22.5 && mY > 350) {
     collision = true;
+    // score = 0;
   }
+  if (mY === 400) {
+    mY = -20
+    mX = random(20, 380);
+    score += 1;
+  }
+  fill('white')
+  text("Score: " + score, 10, 20)
 }
 
 function drawMeteor() {
-  
+  fill('orange');
+  ellipse(mX, mY, 20, 20);
 }
 
 function drawShip(x) {
