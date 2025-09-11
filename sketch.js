@@ -4,12 +4,14 @@
 //
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
+
 let shipX = 200;
 let shipY;
 let mX;
-let mY = -20;
+let mY = 20;
 let collision = false;
 let score = 0;
+let lives = 3;
 
 function setup() {
   createCanvas(400, 400);
@@ -33,25 +35,26 @@ function draw() {
     shipX += 5;
   }
 
-  if (mX <= shipX + 22.5 && mY > 350) {
+  if (mX < shipX + 22.5 && mX > shipX - 22.5 && mY > 350) {
     collision = true;
-    // score = 0;
+    score = 0;
+    lives -= 1;
+    background('red');
   }
-  if (mX >= shipX - 22.5 && mY > 350) {
-    collision = true;
-    // score = 0;
-  }
-  if (mY === 400) {
-    mY = -20
-    mX = random(20, 380);
-    score += 1;
-  }
-  fill('white')
-  text("Score: " + score, 10, 20)
+}
+if (mY === 400) {
+  mY = 20
+  mX = random(20, 380);
+  score += 1;
+
+
+  fill('white');
+  text("Score: " + score, 10, 20);
+  text("Lives: " + lives, 10, 35)
 }
 
 function drawMeteor() {
-  fill('orange');
+  fill(random(1, 255), 0, 0);
   ellipse(mX, mY, 20, 20);
 }
 
