@@ -16,7 +16,6 @@ let lives = 3;
 function setup() {
   createCanvas(400, 400);
   background(240);
-  // ellipseMode(CORNER);
   ellipseMode(CENTER);
   rectMode(CENTER);
   frameRate(60);
@@ -47,7 +46,6 @@ if (mY === 400) {
   mX = random(20, 380);
   score += 1;
 
-
   fill('white');
   text("Score: " + score, 10, 20);
   text("Lives: " + lives, 10, 35)
@@ -61,8 +59,10 @@ function drawMeteor() {
 function drawShip(x) {
   fill('blue');
   ellipse(x, 345, 20, 30);
+  
   fill('white');
   rect(x, 360, 20, 30);
+
   fill('red');
   rect(x - 10, 380, 5, 20);
   rect(x + 10, 380, 5, 20);
