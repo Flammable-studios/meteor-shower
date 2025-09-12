@@ -13,10 +13,11 @@ let mV = 5;
 let collision = false;
 let score = 0;
 let lives = 3;
-let 
+let ambient;
 
 function preload() {
-  
+  ambient = ('ambientmusic.mp3')
+  Audio(ambient);
 }
 function setup() {
   createCanvas(400, 400);
@@ -24,6 +25,7 @@ function setup() {
   ellipseMode(CENTER);
   rectMode(CENTER);
   frameRate(60);
+  play(ambient);
 }
 
 function draw() {
