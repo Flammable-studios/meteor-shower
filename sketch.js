@@ -9,6 +9,7 @@ let shipX = 200;
 let shipY;
 let mX;
 let mY = 20;
+let mV = 5;
 let collision = false;
 let score = 0;
 let lives = 3;
@@ -25,7 +26,7 @@ function draw() {
   background(30);
   drawShip(shipX, shipY);
   drawMeteor(mX, mY);
-  mY += 5;
+  mY += mV;
 
   if (keyIsDown(37) && shipX >= 20 || keyIsDown(65) && shipX >= 20) {
     shipX -= 5;
@@ -43,11 +44,12 @@ function draw() {
     lives -= 1;
   }
 
-  if (mY === 400) {
+  if (mY > 400) {
     mY = 20
     mX = random(20, 380);
     score += 1;
     collision = false;
+    mV += 0.5;
   }
 
   if (collision === true) {
@@ -60,6 +62,7 @@ function draw() {
   fill('white');
   text("Score: " + score, 10, 20);
   text("Lives: " + lives, 10, 35);
+  text("Speed: " + mV, 10, 50);
 
   if (lives === 0) {
     fill(random(1, 255), 0, 0);
@@ -78,6 +81,7 @@ function draw() {
     textSize(0);
     score = 0;
     mY = -10;
+    mV = 5;
   }
 }
 
