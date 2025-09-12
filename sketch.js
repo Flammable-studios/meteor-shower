@@ -13,7 +13,11 @@ let mV = 5;
 let collision = false;
 let score = 0;
 let lives = 3;
+let 
 
+function preload() {
+  
+}
 function setup() {
   createCanvas(400, 400);
   background(240);
