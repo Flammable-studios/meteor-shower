@@ -53,7 +53,7 @@ function draw() {
   if (collision === true) {
     mY = 20
     mX = random(20, 380);
-    score += 1;
+    score = 0;
     collision = false;
   }
 
@@ -71,7 +71,7 @@ function draw() {
     shipX = 500;
   }
 
-  if (keyCode === 82 && keyIsPressed) {
+  if (keyCode === 82 && keyIsPressed && lives === 0) {
     background(30);
     shipX = 200;
     lives = 3;
