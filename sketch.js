@@ -16,8 +16,8 @@ let lives = 3;
 let ambient;
 
 function preload() {
-  ambient = ('ambientmusic.mp3')
-  Audio(ambient);
+  loadSound('ambientmusic.mp3');
+  ambient = ('ambientmusic.mp3');
 }
 function setup() {
   createCanvas(400, 400);
@@ -46,6 +46,7 @@ function draw() {
     collision = true;
     score = 0;
     background('red');
+    mV = 5;
   } if (collision === true) {
     lives -= 1;
   }
